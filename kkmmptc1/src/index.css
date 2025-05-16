@@ -1,0 +1,11 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+@font-face {
+  font-family: 'Dosis';
+  src: url('./assets/fonts/Dosis/Dosis-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Dosis', sans-serif;
+}
