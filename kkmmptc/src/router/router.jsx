@@ -6,7 +6,7 @@ import Contact from '../pages/Contact';
 import News from '../pages/News';
 import Profile from '../pages/Profile';
 import Gallery from '../pages/Gallery';
-import Scrolldown from '../layout/Scrolldown';
+import Pages from '../layout/Pages';
 
 
 const routerList = {
@@ -31,7 +31,7 @@ const route = createBrowserRouter([
     children:[
       {
       path:'',
-       element: <Scrolldown/>,
+       element: <Pages/>,
        children: [
       { path: routerList.home, element: <Home /> },
       { path: routerList.academy, element: <Academy /> },
