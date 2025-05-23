@@ -1,10 +1,4 @@
-import React from 'react';
-import Home from '../pages/Home';
 
-import Contact from '../pages/Contact';
-import News from '../pages/News';
-import Profile from '../pages/Profile';
-import Gallery from '../pages/Gallery';
 import { Outlet } from 'react-router-dom';
 
 function Pages() {

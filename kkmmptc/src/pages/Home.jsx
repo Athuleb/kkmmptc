@@ -14,54 +14,46 @@ export default function Home() {
   return (
     <div className='w-100' style={{ backgroundColor: '#e8f0fc', marginTop: '5px' }}>
 
-      <Carousel fade>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={college}
-            alt="First slide"
-            style={{ height: '500px', objectFit: 'cover' }}
-          />
 
-        </Carousel.Item>
+      <div style={{ position: 'relative', width: '100%', height: '500px', overflow: 'hidden' }}>
+        <img
+          src={college}
+          alt="College"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: 0.65,
+            filter: 'brightness(0.85)', 
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: '#ffffff',
+            textAlign: 'center',
+            userSelect: 'none',
+          }}
+        >
+          <h1
+            style={{
+              fontFamily: "'Dosis', sans-serif",
+              fontWeight: '900',
+              fontSize: 'clamp(2.4rem, 4vw, 4rem)',
+              textShadow: '2px 2px 8px rgba(0,0,0)',
+              margin: 0,
+              letterSpacing: '4px',
+            }}
+          >
+            KKMMPTC<br /> KALLETTUMKARA
+          </h1>
+        </div>
+      </div>
 
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={tharang}
-            alt="Second slide"
-            style={{ height: '500px', objectFit: 'cover' }}
-          />
 
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={event}
-            alt="Second slide"
-            style={{ height: '500px', objectFit: 'cover' }}
-          />
-
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={tharang1}
-            alt="Second slide"
-            style={{ height: '500px', objectFit: 'cover' }}
-          />
-
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={tharang2}
-            alt="Second slide"
-            style={{ height: '500px', objectFit: 'cover' }}
-          />
-
-        </Carousel.Item>
-      </Carousel>
 
 
       <Container className="my-5"  >
@@ -70,17 +62,21 @@ export default function Home() {
           fontOpticalSizing: 'auto',
           fontWeight: 800,
           fontStyle: 'normal',
-          fontSize: '50px'
+          fontSize: '30px'
         }}>
-          <span>
-            <Typewriter
-              words={['WELCOME TO KKMMPTC KALLETTUMKARA']}
-              loop={1}
-              typeSpeed={20}
-              deleteSpeed={50}
-              delaySpeed={1000}
-            />
-          </span>
+          <h2 className="text-center mb-4" style={{ fontFamily: "'Dosis', sans-serif", fontWeight: 800, fontSize: '30px' }}>
+            <span style={{ color: 'rgb(0, 128, 255)' }}>WELCOME </span>
+            <span>
+              <Typewriter
+                words={['TO KKMMPTC KALLETTUMKARA']}
+                loop={1}
+                typeSpeed={20}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </span>
+          </h2>
+
         </h2>
 
         <Row >
@@ -114,7 +110,7 @@ export default function Home() {
               viewport={{ once: true, amount: 0.8 }}
             >
               <img
-                src={event}
+                src={college}
                 alt="College campus"
                 className="img-fluid rounded"
               />
