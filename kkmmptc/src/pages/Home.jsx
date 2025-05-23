@@ -6,6 +6,8 @@ import tharang2 from '../assets/images/tharang2.jpeg'
 import college from '../assets/images/clg.png'
 import event from '../assets/images/event.jpeg'
 import { Typewriter } from 'react-simple-typewriter';
+import { motion } from 'framer-motion';
+import { FaBook, FaUser } from 'react-icons/fa';
 
 
 export default function Home() {
@@ -105,11 +107,18 @@ export default function Home() {
               There are six full-time diploma programmes for the students in K. Karunakaran Memorial Model Polytechnic College, completed over a period of three years. There are diploma courses in Computer Hardware Engineering, Biomedical Engineering, Electronics Engineering, Computer Engineering, Electrical and Electronics Engineering, and Robotic Process Automation            </p>
           </Col>
           <Col md={6}>
-            <img
-              src={event}
-              alt="College campus"
-              className="img-fluid rounded"
-            />
+            <motion.div
+              initial={{ x: 200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true, amount: 0.8 }}
+            >
+              <img
+                src={event}
+                alt="College campus"
+                className="img-fluid rounded"
+              />
+            </motion.div>
           </Col>
         </Row>
       </Container>
@@ -118,6 +127,7 @@ export default function Home() {
       <Container className="mb-5">
         <Row className="justify-content-center text-center">
           <Col md={6}>
+            <FaBook size={40} color="#0d47a1" className="mb-3" />
             <div>
               <h2 style={{
                 fontFamily: "'Dosis', sans-serif",
@@ -128,7 +138,7 @@ export default function Home() {
                 color: '#0d47a1',
               }}>Our Mission</h2>
               <ul style={{
-                fontSize: '17px',
+                fontSize: '13px',
                 lineHeight: '1.6',
                 fontFamily: "'Dosis', sans-serif",
                 color: '#333',
@@ -149,6 +159,7 @@ export default function Home() {
           </Col>
 
           <Col md={6}>
+            <FaUser size={40} color="#0d47a1" className="mb-3" />
             <div>
               <h2 style={{
                 fontFamily: "'Dosis', sans-serif",
@@ -159,7 +170,7 @@ export default function Home() {
                 color: '#0d47a1',
               }}>Our Vision</h2>
               <p style={{
-                fontSize: '17px',
+                fontSize: '13px',
                 lineHeight: '1.6',
                 fontFamily: "'Dosis', sans-serif",
                 color: '#333',
