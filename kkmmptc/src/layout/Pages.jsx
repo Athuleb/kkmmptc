@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from '../pages/Home';
-import Academy from '../pages/Academy';
+
 import Contact from '../pages/Contact';
 import News from '../pages/News';
 import Profile from '../pages/Profile';

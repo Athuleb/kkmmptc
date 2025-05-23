@@ -1,0 +1,8 @@
+.link-no-underline {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-no-underline:hover {
+  text-decoration: underline;
+}

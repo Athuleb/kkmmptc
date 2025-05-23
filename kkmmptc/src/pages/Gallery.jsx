@@ -1,59 +1,57 @@
 import React, { useState, useMemo } from 'react';
-import '../styles/gallery.css'; 
+import { Skeleton } from '@mui/material';
 import FileLocation from '../assets/images/gallery/FileLocation';
-
-function shuffleArray(array) {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
+import '../styles/gallery.css';
 
 export default function Gallery() {
-  const [modalOpen, setModalOpen] = useState(false);
   const [selectedMedia, setSelectedMedia] = useState(null);
+  const [loadedIndexes, setLoadedIndexes] = useState({});
 
-  const shuffledFileLocation = useMemo(() => shuffleArray(FileLocation), []);
+  const shuffledMedia = useMemo(() => {
+    return [...FileLocation].sort(() => 0.5 - Math.random());
+  }, []);
 
-  const handleOpenModal = (item) => {
-    setSelectedMedia(item);
-    setModalOpen(true);
-  };
+  const openModal = (media) => setSelectedMedia(media);
+  const closeModal = () => setSelectedMedia(null);
 
-  const handleCloseModal = () => {
-    setSelectedMedia(null);
-    setModalOpen(false);
+  const handleLoad = (index) => {
+    setLoadedIndexes((prev) => ({ ...prev, [index]: true }));
   };
 
   return (
-    <div>
+    <>
       <div className="gallery-grid">
-        {shuffledFileLocation.map((item, index) => (
-          <div
-            className="gallery-item"
-            key={index}
-            onClick={() => handleOpenModal(item)}
-            style={{ cursor: 'pointer' }}
-          >
-            {item.type === 'image' ? (
-              <img src={item.src} alt={`Media ${index}`} />
+        {shuffledMedia.map((media, index) => (
+          <div key={index} className="gallery-item" onClick={() => openModal(media)}>
+            {!loadedIndexes[index] && (
+              <Skeleton variant="rectangular" animation="wave" height={200} width="100%" />
+            )}
+            {media.type === 'image' ? (
+              <img
+                src={media.src}
+                alt={`media-${index}`}
+                onLoad={() => handleLoad(index)}
+                style={{ display: loadedIndexes[index] ? 'block' : 'none' }}
+              />
             ) : (
-              <video>
-                <source src={item.src} type="video/mp4" />
+              <video
+                muted
+                onLoadedData={() => handleLoad(index)}
+                style={{ display: loadedIndexes[index] ? 'block' : 'none' }}
+              >
+                <source src={media.src} type="video/mp4" />
               </video>
             )}
           </div>
         ))}
       </div>
 
-      {modalOpen && selectedMedia && (
-        <div className="media-modal" onClick={handleCloseModal}>
+      {selectedMedia && (
+        <div className="media-modal" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close-btn" onClick={handleCloseModal}>&times;</span>
+            <span className="close-btn" onClick={closeModal}>&times;</span>
             {selectedMedia.type === 'image' ? (
-              <img src={selectedMedia.src} alt="Enlarged media" />
+              <img src={selectedMedia.src} alt="Preview" />
             ) : (
               <video controls autoPlay>
                 <source src={selectedMedia.src} type="video/mp4" />
@@ -62,6 +60,6 @@ export default function Gallery() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }

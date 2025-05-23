@@ -5,17 +5,20 @@ import tharang1 from '../assets/images/tharang1.jpeg'
 import tharang2 from '../assets/images/tharang2.jpeg'
 import college from '../assets/images/clg.png'
 import event from '../assets/images/event.jpeg'
+import { Typewriter } from 'react-simple-typewriter';
+
+
 export default function Home() {
   return (
-    <div className='w-100' style={{ backgroundColor: '#e8f0fc' }}>
-      {/* Carousel Section */}
+    <div className='w-100' style={{ backgroundColor: '#e8f0fc', marginTop: '5px' }}>
+
       <Carousel fade>
         <Carousel.Item>
           <img
             className="d-block w-100"
             src={college}
             alt="First slide"
-            style={{ height: '400px', objectFit: 'cover' }}
+            style={{ height: '500px', objectFit: 'cover' }}
           />
 
         </Carousel.Item>
@@ -25,7 +28,7 @@ export default function Home() {
             className="d-block w-100"
             src={tharang}
             alt="Second slide"
-            style={{ height: '400px', objectFit: 'cover' }}
+            style={{ height: '500px', objectFit: 'cover' }}
           />
 
         </Carousel.Item>
@@ -34,7 +37,7 @@ export default function Home() {
             className="d-block w-100"
             src={event}
             alt="Second slide"
-            style={{ height: '400px', objectFit: 'cover' }}
+            style={{ height: '500px', objectFit: 'cover' }}
           />
 
         </Carousel.Item>
@@ -43,7 +46,7 @@ export default function Home() {
             className="d-block w-100"
             src={tharang1}
             alt="Second slide"
-            style={{ height: '400px', objectFit: 'cover' }}
+            style={{ height: '500px', objectFit: 'cover' }}
           />
 
         </Carousel.Item>
@@ -52,13 +55,13 @@ export default function Home() {
             className="d-block w-100"
             src={tharang2}
             alt="Second slide"
-            style={{ height: '400px', objectFit: 'cover' }}
+            style={{ height: '500px', objectFit: 'cover' }}
           />
 
         </Carousel.Item>
       </Carousel>
 
-      {/* College Details Section */}
+
       <Container className="my-5"  >
         <h2 className="text-center mb-4" style={{
           fontFamily: "'Dosis', sans-serif",
@@ -66,7 +69,18 @@ export default function Home() {
           fontWeight: 800,
           fontStyle: 'normal',
           fontSize: '50px'
-        }}>WELCOME TO KKMMPTC KALLETTUMKARA</h2>
+        }}>
+          <span>
+            <Typewriter
+              words={['WELCOME TO KKMMPTC KALLETTUMKARA']}
+              loop={1}
+              typeSpeed={20}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </span>
+        </h2>
+
         <Row >
           <Col md={6}>
             <p style={{
@@ -100,32 +114,65 @@ export default function Home() {
         </Row>
       </Container>
 
-      {/* Mission/Vision Section */}
+
       <Container className="mb-5">
-        <Row>
-          <Col md={5}>
-            <Card className="text-center shadow-sm">
-              <Card.Body>
-                <Card.Title>Our Mission</Card.Title>
-                <Card.Text>
-                  Strive to uphold professional leadership, competitive research and development for social enhancement through innovative and dedicated teaching, emphasizing human values.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={5}>
-            <Card className="text-center shadow-sm">
-              <Card.Body>
-                <Card.Title>Our Vision</Card.Title>
-                <Card.Text>
-                  To develop into a centre of excellence in technical education,providing highly disciplined skilled professionals, instrumental in the techno-socio-economic development.
-                </Card.Text>
-              </Card.Body>
-            </Card>
+        <Row className="justify-content-center text-center">
+          <Col md={6}>
+            <div>
+              <h2 style={{
+                fontFamily: "'Dosis', sans-serif",
+                fontWeight: 700,
+                fontSize: '32px',
+                marginBottom: '15px',
+                textTransform: 'uppercase',
+                color: '#0d47a1',
+              }}>Our Mission</h2>
+              <ul style={{
+                fontSize: '17px',
+                lineHeight: '1.6',
+                fontFamily: "'Dosis', sans-serif",
+                color: '#333',
+                padding: '0 20px',
+                listStyleType: 'none'
+              }}>
+                <li>
+                  <strong>About Technical Knowledge:</strong><br />
+                  To cultivate a community of professionals driven by a passion for technical excellence through comprehensive and cutting-edge education, mentorship, and experiential learning.
+                </li>
+                <li style={{ marginTop: '10px' }}>
+                  <strong>About Social Commitment:</strong><br />
+                  Promoting the true spirit of social commitment by accomplishing community development activities.
+                </li>
+              </ul>
+
+            </div>
           </Col>
 
+          <Col md={6}>
+            <div>
+              <h2 style={{
+                fontFamily: "'Dosis', sans-serif",
+                fontWeight: 700,
+                fontSize: '32px',
+                marginBottom: '15px',
+                textTransform: 'uppercase',
+                color: '#0d47a1',
+              }}>Our Vision</h2>
+              <p style={{
+                fontSize: '17px',
+                lineHeight: '1.6',
+                fontFamily: "'Dosis', sans-serif",
+                color: '#333',
+                padding: '0 10px'
+              }}>
+                Creating professionals with excellent technical skills and social commitment
+              </p>
+            </div>
+          </Col>
         </Row>
       </Container>
+
+
     </div>
   );
 }

@@ -15,3 +15,12 @@
 .nav-hover.active {
   color: #1e4872 !important; 
 }
+.dropdown-toggle {
+  color: white !important;
+}
+.dropdown-toggle:hover{
+  color: #02488e !important;
+}
+.dropdown-toggle:active{
+  color: #1e4872 !important;
+}
