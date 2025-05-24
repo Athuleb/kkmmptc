@@ -24,7 +24,7 @@ export default function Home() {
             height: '100%',
             objectFit: 'cover',
             opacity: 0.65,
-            filter: 'brightness(0.85)', 
+            filter: 'brightness(0.85)',
           }}
         />
         <div
@@ -103,18 +103,15 @@ export default function Home() {
               There are six full-time diploma programmes for the students in K. Karunakaran Memorial Model Polytechnic College, completed over a period of three years. There are diploma courses in Computer Hardware Engineering, Biomedical Engineering, Electronics Engineering, Computer Engineering, Electrical and Electronics Engineering, and Robotic Process Automation            </p>
           </Col>
           <Col md={6}>
+
             <motion.div
-              initial={{ x: 200, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true, amount: 0.8 }}
+              initial={{ x:0, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1.5,ease: "easeOut"  }}
             >
-              <img
-                src={college}
-                alt="College campus"
-                className="img-fluid rounded"
-              />
+              <img src={college} alt="College campus" className="img-fluid rounded" />
             </motion.div>
+
           </Col>
         </Row>
       </Container>
