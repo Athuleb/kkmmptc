@@ -1,0 +1,49 @@
+.announcement-bar {
+  background-color: #0d48a178;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.scrolling-text {
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 100%;
+  animation: scroll-left 15s linear infinite;
+  font-family: 'Dosis', sans-serif;
+  cursor: pointer;
+}
+
+.scrolling-text a {
+  color: white;
+  text-decoration: none;
+}
+
+.scrolling-text a:hover {
+  color: rgb(255, 85, 85);
+  text-decoration: none;
+}
+
+.scrolling-text:hover {
+  animation-play-state: paused;
+
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .scrolling-text {
+    font-size: 14px;
+  }
+}

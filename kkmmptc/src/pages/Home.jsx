@@ -1,57 +1,52 @@
 import React from 'react';
 import { Carousel, Container, Row, Col, Card } from 'react-bootstrap';
-import tharang from '../assets/images/tharang.jpeg'
-import tharang1 from '../assets/images/tharang1.jpeg'
-import tharang2 from '../assets/images/tharang2.jpeg'
-import college from '../assets/images/clg.png'
-import event from '../assets/images/event.jpeg'
+import college from '../assets/images/clg.png';
+import group from '../assets/images/group.jpeg';
 import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
 import { FaBook, FaUser } from 'react-icons/fa';
-
+import '../styles/home.css';
 
 export default function Home() {
   return (
     <div className='w-100' style={{ backgroundColor: '#e8f0fc', marginTop: '5px' }}>
 
 
-      <div style={{ position: 'relative', width: '100%', height: '500px', overflow: 'hidden' }}>
-        <img
-          src={college}
-          alt="College"
+      <div
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '500px',
+          backgroundImage: `url(${college})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed', // This makes it stay still
+          filter: 'brightness(0.85)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          color: '#ffffff',
+          userSelect: 'none',
+          opacity: '60%'
+        }}
+      >
+        <h1
           style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            opacity: 0.65,
-            filter: 'brightness(0.85)',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            color: '#ffffff',
-            textAlign: 'center',
-            userSelect: 'none',
+            fontFamily: "'Dosis', sans-serif",
+            fontWeight: '900',
+            fontSize: 'clamp(2.4rem, 4vw, 4rem)',
+            textShadow: '8px 9px 8px rgba(0,0,0)',
+            margin: 0,
+            letterSpacing: '4px',
+            color: 'rgb(10, 128, 255)',
+            WebkitTextStroke: '1.5px white'
           }}
         >
-          <h1
-            style={{
-              fontFamily: "'Dosis', sans-serif",
-              fontWeight: '900',
-              fontSize: 'clamp(2.4rem, 4vw, 4rem)',
-              textShadow: '2px 2px 8px rgba(0,0,0)',
-              margin: 0,
-              letterSpacing: '4px',
-            }}
-          >
-            KKMMPTC<br /> KALLETTUMKARA
-          </h1>
-        </div>
+          KKMMPTC<br /> KALLETTUMKARA
+        </h1>
       </div>
+
 
 
 
@@ -105,16 +100,21 @@ export default function Home() {
           <Col md={6}>
 
             <motion.div
-              initial={{ x:0, opacity: 0 }}
+              initial={{ x: 0, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1.5,ease: "easeOut"  }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
             >
-              <img src={college} alt="College campus" className="img-fluid rounded" />
+              <img src={group} alt="College campus" className="img-fluid rounded" />
             </motion.div>
 
           </Col>
         </Row>
       </Container>
+      <div className="announcement-bar">
+        <p className="scrolling-text">
+          <a href="/MPT25.pdf">📢 Admission Open for 2025 | Admission to Diploma Courses in MPTCs under IHRD - Notification | </a>
+        </p>
+      </div>
 
 
       <Container className="mb-5">
