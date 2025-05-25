@@ -1,37 +1,43 @@
+import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
-import Home from '../pages/Home';
-import Contact from '../pages/Contact';
-import News from '../pages/News';
-import Profile from '../pages/Profile';
-import Gallery from '../pages/Gallery';
-import Pages from '../layout/Pages';
-import Courses from '../pages/academy/Courses';
-import CourseDetails from '../pages/academy/CourseDetails';
-import Admission from '../pages/academy/Admission';
-import Activities from '../pages/Activities';
-import { path } from 'framer-motion/client';
+const Home = React.lazy(() => import('../pages/Home'));
+const Contact = React.lazy(() => import('../pages/Contact'));
+const PlacementCell = React.lazy(() => import('../pages/PlacementCell'));
+const Profile = React.lazy(() => import('../pages/Profile'));
+const Gallery = React.lazy(() => import('../pages/Gallery'));
+const Courses = React.lazy(() => import('../pages/academy/Courses'));
+const CourseDetails = React.lazy(() => import('../pages/academy/CourseDetails'));
+const Admission = React.lazy(() => import('../pages/academy/Admission'));
+const Activities = React.lazy(() => import('../pages/Activities'));
+const Academy = React.lazy(() => import('../pages/Academy'));
+
 
 import Nss from '../pages/activites/Nss';
 import BhoomithrasenaClub from "../pages/activites/Boomithrasena";
 import IndustryOnCampus from '../pages/activites/IndustryOnCampus';
 import TechnicalClub from '../pages/activites/TechnicalClub';
-import PlacementCell from '../pages/activites/PlacementCell';
 import WomenGrievanceCell from '../pages/activites/WomenGrievanceCell';
 import AntiRaggingCell from '../pages/activites/AntiRaggingCell';
 import SportsArts from '../pages/activites/SportsArts';
-import Academy from '../pages/Academy';
+import AboutUs from '../pages/profile/AboutUs';
+import VisionMission from '../pages/profile/VisionMission';
+import Principal from '../pages/profile/Principal';
+import Administration from '../pages/profile/Administration';
+
+
+
+
 
 const routerList = {
   home: '/',
   profile: '/profile',
   contact: '/contact',
   gallery: '/gallery',
-  news: '/news',
+  Placement: '/placement-cell',
   activities: '/activities',
   academy: '/academy'
 };
-console.log("roterlist---", routerList);
 
 const route = createBrowserRouter([
   {
@@ -43,46 +49,46 @@ const route = createBrowserRouter([
       </div>
     ),
     children: [
+      { path: routerList.home, element: <Home /> },
       {
-        path: '',
-        element: <Pages />,
+        path: routerList.academy,
+        element: <Academy />,
         children: [
-          { path: routerList.home, element: <Home /> },
-          {
-            path: routerList.academy,
-            element: <Academy />,
-            children: [
-              { path: 'courses', element: <Courses /> },
-              { path: 'course-details', element: <CourseDetails /> },
-              { path: 'admission', element: <Admission /> }
-            ]
-          },
-          { path: routerList.news, element: <News /> },
-          { path: routerList.gallery, element: <Gallery /> },
-          { path: routerList.contact, element: <Contact /> },
-          { path: routerList.profile, element: <Profile /> },
-          {
-            path: routerList.activities,
-            element: <Activities />,
-            children: [
-              { path: 'nss', element: <Nss /> },
-              { path: 'bhoomithrasena-club', element: <BhoomithrasenaClub /> },
-              { path: 'industry-on-campus', element: <IndustryOnCampus /> },
-              { path: 'technical-club', element: <TechnicalClub /> },
-              { path: 'placement-cell', element: <PlacementCell /> },
-              { path: 'women-grievance-cell', element: <WomenGrievanceCell /> },
-              { path: 'anti-ragging-cell', element: <AntiRaggingCell /> },
-              { path: 'sports-and-arts', element: <SportsArts /> },
-            ],
-          },
-
-          { path: '*', element: <div>404 - Page Not Found!</div> }
+          { path: 'courses', element: <Courses /> },
+          { path: 'course-details', element: <CourseDetails /> },
+          { path: 'admission', element: <Admission /> }
         ]
-      }
-    ],
-
-  },
-  { path: '*', element: <div>404 - Page Not Found!</div> }
+      },
+      { path: routerList.Placement, element: <PlacementCell /> },
+      { path: routerList.gallery, element: <Gallery /> },
+      { path: routerList.contact, element: <Contact /> },
+      {
+        path: routerList.profile,
+        element: <Profile />,
+        children: [
+          { path: 'about-us', element: <AboutUs /> },
+          { path: 'vision-mission', element: <VisionMission /> },
+          { path: 'principal', element: <Principal/> }, 
+          { path: 'administration', element: <Administration/> } 
+        ]
+      },
+      {
+        path: routerList.activities,
+        element: <Activities />,
+        children: [
+          { path: 'nss', element: <Nss /> },
+          { path: 'bhoomithrasena-club', element: <BhoomithrasenaClub /> },
+          { path: 'industry-on-campus', element: <IndustryOnCampus /> },
+          { path: 'technical-club', element: <TechnicalClub /> },
+          { path: 'placement-cell', element: <PlacementCell /> },
+          { path: 'women-grievance-cell', element: <WomenGrievanceCell /> },
+          { path: 'anti-ragging-cell', element: <AntiRaggingCell /> },
+          { path: 'sports-and-arts', element: <SportsArts /> },
+        ],
+      },
+      { path: '*', element: <div>404 - Page Not Found!</div> }
+    ]
+  }
 ]);
 
 export default route;

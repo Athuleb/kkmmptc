@@ -54,7 +54,7 @@ export default function NavbarComponent() {
               <NavDropdown.Item as={NavLink} to="/academy/admission">Admission Details</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Activities" id="activities-dropdown" className="nav-hover">
-              <NavDropdown.Item as={NavLink} to="/activities/nss" s>NSS</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/activities/nss" >NSS</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/activities/bhoomithrasena-club">Bhoomithrasena Club</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/activities/industry-on-campus">Industry on Campus</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/activities/technical-club">Technical Club</NavDropdown.Item>
@@ -63,9 +63,14 @@ export default function NavbarComponent() {
               <NavDropdown.Item as={NavLink} to="/activities/anti-ragging-cell">Anti Ragging Cell</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/activities/sports-and-arts">Sports and Arts</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={NavLink} to="/profile" className="nav-hover">Profile</Nav.Link>
+            <NavDropdown title="Profile" id="profile-dropdown" className="nav-hover">
+              <NavDropdown.Item as={NavLink} to="/profile/about-us">About Us</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/profile/vision-mission">Vision and Mission</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/profile/principal">Principal</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/profile/administration">Administration</NavDropdown.Item>
+            </NavDropdown>
             <Nav.Link as={NavLink} to="/gallery" className="nav-hover">Gallery</Nav.Link>
-            <Nav.Link as={NavLink} to="/news" className="nav-hover">News</Nav.Link>
+            <Nav.Link as={NavLink} to="/placement-cell" className="nav-hover">Placement</Nav.Link>
             <Nav.Link as={NavLink} to="/contact" className="nav-hover">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>

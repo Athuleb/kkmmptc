@@ -1,15 +1,13 @@
+// src/App.jsx
+import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import route from './router/router.jsx';
+import './App.css';
 
-import './App.css'
-import MainLayout from './layout/MainLayout'
 function App() {
-  
-
   return (
-    <>
-      <MainLayout/>
-    </>
-  )
+    <RouterProvider router={route} />
+  );
 }
 
-export default App
-
+export default App;

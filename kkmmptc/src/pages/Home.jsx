@@ -1,13 +1,75 @@
-import React from 'react';
-import { Carousel, Container, Row, Col, Card } from 'react-bootstrap';
+import React, { useEffect, useState, useRef } from 'react';
+import { Carousel, Container, Row, Col, Card,Modal, Button } from 'react-bootstrap';
 import college from '../assets/images/clg.png';
 import group from '../assets/images/group.jpeg';
 import { Typewriter } from 'react-simple-typewriter';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { FaBook, FaUser } from 'react-icons/fa';
 import '../styles/home.css';
 
+
 export default function Home() {
+
+
+  const missionControls = useAnimation();
+  const [missionRef, missionInView] = useInView({ threshold: 0.2, triggerOnce: false });
+
+  const visionControls = useAnimation();
+  const [visionRef, visionInView] = useInView({ threshold: 0.2, triggerOnce: false });
+
+  const [showHeading, setShowHeading] = useState(true);
+  const lastScrollY = useRef(0);
+
+
+  useEffect(() => {
+    if (missionInView) {
+      missionControls.start('visible');
+    } else {
+      missionControls.start('hidden');
+    }
+  }, [missionInView, missionControls]);
+
+  useEffect(() => {
+    if (visionInView) {
+      visionControls.start('visible');
+    } else {
+      visionControls.start('hidden');
+    }
+  }, [visionInView, visionControls]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY.current) {
+        // Scrolling down
+        setShowHeading(false);
+      } else {
+        // Scrolling up
+        setShowHeading(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
+
+  const fadeUpVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: 'easeOut' },
+    },
+  };
+
+
   return (
     <div className='w-100' style={{ backgroundColor: '#e8f0fc', marginTop: '5px' }}>
 
@@ -20,7 +82,7 @@ export default function Home() {
           backgroundImage: `url(${college})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed', // This makes it stay still
+          backgroundAttachment: 'fixed', 
           filter: 'brightness(0.85)',
           display: 'flex',
           alignItems: 'center',
@@ -31,20 +93,28 @@ export default function Home() {
           opacity: '60%'
         }}
       >
-        <h1
-          style={{
-            fontFamily: "'Dosis', sans-serif",
-            fontWeight: '900',
-            fontSize: 'clamp(2.4rem, 4vw, 4rem)',
-            textShadow: '8px 9px 8px rgba(0,0,0)',
-            margin: 0,
-            letterSpacing: '4px',
-            color: 'rgb(10, 128, 255)',
-            WebkitTextStroke: '1.5px white'
-          }}
+        <motion.div
+          initial={{ opacity: 1, y: 0 }}
+          animate={showHeading ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
+          transition={{ duration: 0.5 }}
         >
-          KKMMPTC<br /> KALLETTUMKARA
-        </h1>
+          <h1
+            style={{
+              fontFamily: "'Dosis', sans-serif",
+              fontWeight: '900',
+              fontSize: 'clamp(2.4rem, 4vw, 4rem)',
+              textShadow: '8px 9px 8px rgba(0,0,0)',
+              margin: 0,
+              letterSpacing: '4px',
+              color: 'rgb(10, 128, 255)',
+              WebkitTextStroke: '1.5px white'
+            }}
+          >
+            KKMMPTC<br /> KALLETTUMKARA
+          </h1>
+        </motion.div>
+
+
       </div>
 
 
@@ -59,7 +129,7 @@ export default function Home() {
           fontStyle: 'normal',
           fontSize: '30px'
         }}>
-          <h2 className="text-center mb-4" style={{ fontFamily: "'Dosis', sans-serif", fontWeight: 800, fontSize: '30px' }}>
+          <span className="text-center mb-4" style={{ fontFamily: "'Dosis', sans-serif", fontWeight: 800, fontSize: '30px' }}>
             <span style={{ color: 'rgb(0, 128, 255)' }}>WELCOME </span>
             <span>
               <Typewriter
@@ -70,7 +140,7 @@ export default function Home() {
                 delaySpeed={1000}
               />
             </span>
-          </h2>
+          </span>
 
         </h2>
 
@@ -103,14 +173,15 @@ export default function Home() {
               initial={{ x: 0, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
+
             >
               <img src={group} alt="College campus" className="img-fluid rounded" />
             </motion.div>
-
           </Col>
         </Row>
       </Container>
-      <div className="announcement-bar">
+      <div className="announcement-bar" >
         <p className="scrolling-text">
           <a href="/MPT25.pdf">📢 Admission Open for 2025 | Admission to Diploma Courses in MPTCs under IHRD - Notification | </a>
         </p>
@@ -120,63 +191,88 @@ export default function Home() {
       <Container className="mb-5">
         <Row className="justify-content-center text-center">
           <Col md={6}>
-            <FaBook size={40} color="#0d47a1" className="mb-3" />
-            <div>
-              <h2 style={{
-                fontFamily: "'Dosis', sans-serif",
-                fontWeight: 700,
-                fontSize: '32px',
-                marginBottom: '15px',
-                textTransform: 'uppercase',
-                color: '#0d47a1',
-              }}>Our Mission</h2>
-              <ul style={{
-                fontSize: '13px',
-                lineHeight: '1.6',
-                fontFamily: "'Dosis', sans-serif",
-                color: '#333',
-                padding: '0 20px',
-                listStyleType: 'none'
-              }}>
+            <motion.div
+              ref={missionRef}
+              initial="hidden"
+              animate={missionInView ? "visible" : "hidden"}
+              variants={fadeUpVariant}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+            >
+              <FaBook size={40} color="#0d47a1" className="mb-3" />
+              <h2
+                style={{
+                  fontFamily: "'Dosis', sans-serif",
+                  fontWeight: 700,
+                  fontSize: '32px',
+                  marginBottom: '15px',
+                  textTransform: 'uppercase',
+                  color: '#0d47a1',
+                }}
+              >
+                Our Mission
+              </h2>
+              <ul
+                style={{
+                  fontSize: '13px',
+                  lineHeight: '1.6',
+                  fontFamily: "'Dosis', sans-serif",
+                  color: '#333',
+                  padding: '0 20px',
+                  listStyleType: 'none',
+                }}
+              >
                 <li>
-                  <strong>About Technical Knowledge:</strong><br />
+                  <strong>About Technical Knowledge:</strong>
+                  <br />
                   To cultivate a community of professionals driven by a passion for technical excellence through comprehensive and cutting-edge education, mentorship, and experiential learning.
                 </li>
                 <li style={{ marginTop: '10px' }}>
-                  <strong>About Social Commitment:</strong><br />
+                  <strong>About Social Commitment:</strong>
+                  <br />
                   Promoting the true spirit of social commitment by accomplishing community development activities.
                 </li>
               </ul>
-
-            </div>
+            </motion.div>
           </Col>
 
           <Col md={6}>
-            <FaUser size={40} color="#0d47a1" className="mb-3" />
-            <div>
-              <h2 style={{
-                fontFamily: "'Dosis', sans-serif",
-                fontWeight: 700,
-                fontSize: '32px',
-                marginBottom: '15px',
-                textTransform: 'uppercase',
-                color: '#0d47a1',
-              }}>Our Vision</h2>
-              <p style={{
-                fontSize: '13px',
-                lineHeight: '1.6',
-                fontFamily: "'Dosis', sans-serif",
-                color: '#333',
-                padding: '0 10px'
-              }}>
+            <motion.div
+              ref={visionRef}
+              initial="hidden"
+              animate={visionInView ? "visible" : "hidden"}
+              variants={fadeUpVariant}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+            >
+              <FaUser size={40} color="#0d47a1" className="mb-3" />
+              <h2
+                style={{
+                  fontFamily: "'Dosis', sans-serif",
+                  fontWeight: 700,
+                  fontSize: '32px',
+                  marginBottom: '15px',
+                  textTransform: 'uppercase',
+                  color: '#0d47a1',
+                }}
+              >
+                Our Vision
+              </h2>
+              <p
+                style={{
+                  fontSize: '13px',
+                  lineHeight: '1.6',
+                  fontFamily: "'Dosis', sans-serif",
+                  color: '#333',
+                  padding: '0 10px',
+                }}
+              >
                 Creating professionals with excellent technical skills and social commitment
               </p>
-            </div>
+            </motion.div>
           </Col>
         </Row>
       </Container>
-
-
     </div>
   );
 }
