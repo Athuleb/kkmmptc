@@ -109,27 +109,30 @@ export default function Course() {
             </Row>
 
             {selectedCourse && (
-                <Modal show={showModal} onHide={handleClose} centered size="lg">
-                    <Modal.Header closeButton>
-                        <Modal.Title>{selectedCourse.title}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Row>
-                            <Col md={5}>
-                                <img
-                                    src={selectedCourse.image}
-                                    alt={selectedCourse.title}
-                                    className="img-fluid rounded"
-                                />
-                            </Col>
-                            <Col md={7}>
-                                <p><strong>Seats:</strong> {selectedCourse.seats}</p>
-                                <p><strong>Duration:</strong> {selectedCourse.duration}</p>
-                                <p><strong>Eligibility:</strong> {selectedCourse.eligibility}</p>
-                                <p><strong>Description:</strong> {selectedCourse.description}</p>
-                            </Col>
-                        </Row>
-                    </Modal.Body>
+                <Modal show={showModal} onHide={handleClose} centered size="lg" style={{ backgroundColor: 'rgb(0,0,0,.4' }}>
+
+                    <div style={{backgroundColor:"white",borderRadius:"10px"}}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>{selectedCourse.title}</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body >
+                            <Row>
+                                <Col md={5}>
+                                    <img
+                                        src={selectedCourse.image}
+                                        alt={selectedCourse.title}
+                                        className="img-fluid rounded"
+                                    />
+                                </Col>
+                                <Col md={7}>
+                                    <p><strong>Seats:</strong> {selectedCourse.seats}</p>
+                                    <p><strong>Duration:</strong> {selectedCourse.duration}</p>
+                                    <p><strong>Eligibility:</strong> {selectedCourse.eligibility}</p>
+                                    <p><strong>Description:</strong> {selectedCourse.description}</p>
+                                </Col>
+                            </Row>
+                        </Modal.Body>
+                    </div>
                 </Modal>
             )}
         </Container>

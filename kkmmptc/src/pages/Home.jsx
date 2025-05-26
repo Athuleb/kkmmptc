@@ -154,7 +154,7 @@ export default function Home() {
               fontSize: '20px',
               textAlign: 'justify'
             }}>
-              K Karunakaran Memorial Model Polytechnic College, Mala, established in 1993, is one of the premier technical institutions located in Thrissur, Kerala. The affiliated college, approved by AICTE, imparts training to students in different diploma programmes in various disciplines of engineering. This college has sprawled over an area of 12.375 acres on which conducts a sound environment of technical education. This institute boasts the strength of 680 students and faculty strength of 10. Ensuring personal attention and quality education for its students is its priority.
+              K Karunakaran Memorial Model Polytechnic College, Kallettumkara, established in 1993, is one of the premier technical institutions located in Thrissur, Kerala. The affiliated college, approved by AICTE, imparts training to students in different diploma programmes in various disciplines of engineering. This college has sprawled over an area of 12.375 acres on which conducts a sound environment of technical education. Ensuring personal attention and quality education for its students is its priority.
             </p>
             <p style={{
               fontFamily: "'Dosis', sans-serif",
@@ -164,7 +164,7 @@ export default function Home() {
               fontSize: '20px',
               textAlign: 'justify'
             }}>
-              The college has a range of modern facilities supporting its programme of instruction. The library is a core learning resource, adding around 1,000 books a year to its list and subscribing to more than 100 current periodicals for use in electronic form; it offers online access to thousands of electronic journals and databases, providing students and faculty members with a greatly enhanced research capability. Every college, in every department, has well-equipped laboratories wherein the students can practically learn about the respective streams.
+              The college has a range of modern facilities supporting its programme of instruction. The library is a core learning resource, adding around 5,000 books a year to its list and subscribing to more than 100 current periodicals for use in electronic form; it offers online access to thousands of electronic journals and databases, providing students and faculty members with a greatly enhanced research capability. Every college, in every department, has well-equipped laboratories wherein the students can practically learn about the respective streams.
               There are six full-time diploma programmes for the students in K. Karunakaran Memorial Model Polytechnic College, completed over a period of three years. There are diploma courses in Computer Hardware Engineering, Biomedical Engineering, Electronics Engineering, Computer Engineering, Electrical and Electronics Engineering, and Robotic Process Automation            </p>
           </Col>
           <Col md={6}>

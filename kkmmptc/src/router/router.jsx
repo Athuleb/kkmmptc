@@ -36,7 +36,8 @@ const routerList = {
   gallery: '/gallery',
   Placement: '/placement-cell',
   activities: '/activities',
-  academy: '/academy'
+  academy: '/academy',
+  pta:'pta'
 };
 
 const route = createBrowserRouter([
