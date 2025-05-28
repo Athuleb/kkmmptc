@@ -51,7 +51,6 @@ export default function PlacementCell() {
     { name: "Smt. Divya VV", role: "Lr. In EL" },
     { name: "Smt. Joshmy Jose", role: "Lr. In BME" },
     { name: "Smt. Hima A U", role: "Lr. In CT" },
-    { name: "Smt. Sony KT", role: "Lr. In CT" },
     { name: "Smt. Badarunisa T S", role: "Lr. In CT" },
     { name: "Smt. Devasena KR", role: "Lr. In EE" },
   ];
