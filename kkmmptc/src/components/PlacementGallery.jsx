@@ -1,69 +1,57 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React from 'react';
 import FileLocation from '../assets/images/gallery/FileLocation';
 
-function shuffleArray(arr) {
-  return [...arr].sort(() => Math.random() - 0.5);
-}
-
-export default function PlacementGallery() {
-  const [shuffledItems, setShuffledItems] = useState(shuffleArray(FileLocation));
-  const [fadeClass, setFadeClass] = useState('fade-in');
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFadeClass('fade-out');
-      setTimeout(() => {
-        setShuffledItems(shuffleArray(FileLocation));
-        setFadeClass('fade-in');
-      }, 500);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const columns = [[], [], []];
-  shuffledItems.slice(0, 15).forEach((item, index) => {
-    columns[index % 3].push(item);
-  });
-
+const PlacementGallery = () => {
   return (
-    <section style={{ backgroundColor: '#f9f9f9' }}>
-      <Container fluid className="p-0">
-        <Row className="g-0">
-          {columns.map((colItems, colIndex) => (
-            <Col key={colIndex} lg={4} md={6} sm={12} className="p-0">
-              {colItems.map((item, index) => (
-                <div key={index} style={{ width: '100%' }}>
-                  {item.type === 'image' ? (
-                    <img
-                      src={item.src}
-                      alt={`gallery-${index}`}
-                      className={`w-100 ${fadeClass}`}
-                      style={{
-                        objectFit: 'cover',
-                        transition: 'opacity 0.5s ease-in-out',
-                        display: 'block',
-                      }}
-                    />
-                  ) : (
-                    <video
-                      src={item.src}
-                      controls
-                      className={`w-100 ${fadeClass}`}
-                      style={{
-                        objectFit: 'cover',
-                        transition: 'opacity 0.5s ease-in-out',
-                        display: 'block',
-                      }}
-                    />
-                  )}
-                </div>
-              ))}
-            </Col>
-          ))}
-        </Row>
-      </Container>
+    <section style={{ padding: '3rem 1rem', backgroundColor: '#f0f4f8' }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Placement Gallery</h2>
+
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '1.5rem',
+          padding: '0 1rem',
+        }}
+      >
+        {FileLocation.map((item, idx) => (
+          <div
+            key={idx}
+            style={{
+              borderRadius: '10px',
+              overflow: 'hidden',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              backgroundColor: '#fff',
+            }}
+          >
+            {item.type === 'image' ? (
+              <img
+                src={item.src}
+                alt={`Gallery item ${idx}`}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+            ) : (
+              <video
+                src={item.src}
+                controls
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  display: 'block',
+                  objectFit: 'cover',
+                }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
     </section>
   );
-}
+};
+
+export default PlacementGallery;

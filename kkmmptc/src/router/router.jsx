@@ -24,6 +24,13 @@ import AboutUs from '../pages/profile/AboutUs';
 import VisionMission from '../pages/profile/VisionMission';
 import Principal from '../pages/profile/Principal';
 import Administration from '../pages/profile/Administration';
+import Department from '../pages/academy/Department';
+import IIC from '../pages/activites/IIC';
+import AntiDrugCell from '../pages/activites/AntiDrugCell';
+import IQAC from '../pages/activites/IQAC';
+import AcademicCouncil from '../pages/activites/AcademicCouncil';
+import CollegeSenate from '../pages/activites/CollegeSenate';
+import PTA from '../pages/activites/PTA';
 
 
 
@@ -37,7 +44,6 @@ const routerList = {
   Placement: '/placement-cell',
   activities: '/activities',
   academy: '/academy',
-  pta:'pta'
 };
 
 const route = createBrowserRouter([
@@ -57,7 +63,9 @@ const route = createBrowserRouter([
         children: [
           { path: 'courses', element: <Courses /> },
           { path: 'course-details', element: <CourseDetails /> },
-          { path: 'admission', element: <Admission /> }
+          { path: 'admission', element: <Admission /> },
+          { path: 'department', element: <Department /> }
+
         ]
       },
       { path: routerList.Placement, element: <PlacementCell /> },
@@ -69,8 +77,8 @@ const route = createBrowserRouter([
         children: [
           { path: 'about-us', element: <AboutUs /> },
           { path: 'vision-mission', element: <VisionMission /> },
-          { path: 'principal', element: <Principal/> }, 
-          { path: 'administration', element: <Administration/> } 
+          { path: 'principal', element: <Principal /> },
+          { path: 'administration', element: <Administration /> },
         ]
       },
       {
@@ -85,6 +93,12 @@ const route = createBrowserRouter([
           { path: 'women-grievance-cell', element: <WomenGrievanceCell /> },
           { path: 'anti-ragging-cell', element: <AntiRaggingCell /> },
           { path: 'sports-and-arts', element: <SportsArts /> },
+          { path: 'iic', element: <IIC /> },
+          { path: 'anti-drug-cell', element: <AntiDrugCell /> },
+          { path: 'college-senate', element: <CollegeSenate /> },
+          { path: 'academic-council', element: <AcademicCouncil /> },
+          { path: 'iqac', element: <IQAC /> },
+          { path: 'pta', element: <PTA/> },
         ],
       },
       { path: '*', element: <div>404 - Page Not Found!</div> }

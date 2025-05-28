@@ -54,8 +54,8 @@ export default function NavbarComponent() {
               <NavDropdown.Item as={NavLink} to="/academy/admission">Admission Details</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/academy/department">Department</NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Activities" id="activities-dropdown" className="nav-hover">
-              <NavDropdown.Item as={NavLink} to="/activities/nss" >NSS</NavDropdown.Item>
+            <NavDropdown title="Activities" id="activities-dropdown" className="nav-hover ">
+              <NavDropdown.Item as={NavLink} to="/activities/nss">NSS</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/activities/bhoomithrasena-club">Bhoomithrasena Club</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/activities/industry-on-campus">Industry on Campus</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/activities/technical-club">Technical Club</NavDropdown.Item>
@@ -63,7 +63,13 @@ export default function NavbarComponent() {
               <NavDropdown.Item as={NavLink} to="/activities/women-grievance-cell">Women Grievance Cell</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/activities/anti-ragging-cell">Anti Ragging Cell</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/activities/sports-and-arts">Sports and Arts</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/activities/iic">IIC</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/activities/anti-drug-cell">Anti-Drug Cell</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/activities/college-senate">College Senate</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/activities/academic-council">Academic Council</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/activities/iqac">IQAC</NavDropdown.Item>
             </NavDropdown>
+
             <NavDropdown title="Profile" id="profile-dropdown" className="nav-hover">
               <NavDropdown.Item as={NavLink} to="/profile/about-us">About Us</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/profile/vision-mission">Vision and Mission</NavDropdown.Item>

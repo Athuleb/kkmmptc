@@ -1,20 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Col } from 'react-bootstrap';
+import { Col, Container } from 'react-bootstrap';
+import { Grid, Card, CardContent, Typography } from '@mui/material';
 import { FaPhoneAlt, FaUserTie, FaListAlt, FaUsers } from 'react-icons/fa';
 import college from '../assets/images/placement.png';
 import officerImg from '../assets/images/placement/placementcellofficer.jpeg';
-import tcs from '../assets/images/placement/tcs.png';
 import infosys from '../assets/images/placement/infosys.svg';
 import wipro from '../assets/images/placement/wipro.jpg';
-import PlacementGallery from '../components/PlacementGallery';
-
+import sfo from '../assets/images/placement/sfo.jpeg'
+import ison from '../assets/images/placement/ison.jpeg'
+import iron from '../assets/images/placement/iron.jpeg'
+import dukesoft from '../assets/images/placement/dukesoft.jpeg'
+import britco from '../assets/images/placement/britco.png'
+import up from '../assets/images/placement/up.jpeg'
 
 
 export default function PlacementCell() {
 
   const [isHovered, setIsHovered] = useState(false);
-  const logos = [tcs, infosys, wipro];
+  const logos = [infosys, wipro, sfo, ison, iron, dukesoft, britco, up];
 
   const scrollContainerStyle = {
     display: "inline-block",
@@ -38,6 +42,19 @@ export default function PlacementCell() {
   };
 
 
+
+  const placementMembers = [
+    { name: "Sri Ranthidev CS", role: "Placement Officer" },
+    { name: "Sri. Anilkumar PR", role: "HOS CT" },
+    { name: "Smt. Anila Kumari CA", role: "HOS EL" },
+    { name: "Smt. Krishnaveni KR", role: "HOS BME" },
+    { name: "Smt. Divya VV", role: "Lr. In EL" },
+    { name: "Smt. Joshmy Jose", role: "Lr. In BME" },
+    { name: "Smt. Hima A U", role: "Lr. In CT" },
+    { name: "Smt. Sony KT", role: "Lr. In CT" },
+    { name: "Smt. Badarunisa T S", role: "Lr. In CT" },
+    { name: "Smt. Devasena KR", role: "Lr. In EE" },
+  ];
 
   const [showHeading, setShowHeading] = useState(true);
   const lastScrollY = useRef(0);
@@ -91,7 +108,7 @@ export default function PlacementCell() {
               borderRadius: '12px',
             }}
           >
-            Placement<br /> Cell
+            PLACEM<br /> Cell
           </h1>
         </motion.div>
       </div>
@@ -125,87 +142,130 @@ export default function PlacementCell() {
         </motion.div>
       </section>
 
+      <section style={{ padding: "2rem 1rem", backgroundColor: "#f2f2f2" }}>
+        <Container maxWidth="lg" style={{ padding: '1rem' }}>
+          <Typography
+            variant="h4"
+            align="center"
+            gutterBottom
+            sx={{
+              fontWeight: 400,
+              fontSize: { xs: '1.8rem', sm: '2.5rem', md: '3rem' }
+            }}
+          >
+            Placement Cell Members
+          </Typography>
+          <Grid container spacing={3}>
+            {placementMembers.map((member, idx) => (
+              <Grid key={idx} item xs={12} sm={6} md={4} lg={3}>
+                <Card
+                  sx={{
+                    borderRadius: "16px",
+                    boxShadow: 3,
+                    transition: "0.3s",
+                    padding: 1,
+                    "&:hover": {
+                      transform: "scale(1.02)",
+                      boxShadow: 6,
+                    },
+                  }}
+                >
+                  <CardContent>
+                    <Typography variant="h6" component="div" gutterBottom>
+                      {member.name}
+                    </Typography>
+                    <Typography color="text.secondary" sx={{ fontSize: { xs: '0.9rem', sm: '1rem' } }}>
+                      {member.role}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+
+      </section>
       {/* Recruitment Partners */}
-      <section style={sectionStyle}>
+      <section style={{ padding: '2rem 1rem', backgroundColor: '#f9f9f9' }}>
         <motion.div
           whileInView={{ opacity: [0, 1], y: [30, 0] }}
           transition={{ duration: 0.6 }}
         >
-          <h2>Our Recruitment Partners</h2>
+          <h2 style={{ textAlign: 'center' }}>Our Recruitment Partners</h2>
+
           <div
             style={{
-              overflow: "hidden",
-              marginTop: "1rem",
-              whiteSpace: "nowrap",
+              overflow: 'hidden',
+              marginTop: '2rem',
+              position: 'relative',
+              width: '100%',
             }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            <div style={scrollContainerStyle}>
-              {[...logos, ...logos].map((logo, idx) => (
+            <div
+              className="scrolling-logos"
+              style={{
+                display: 'inline-flex',
+                animation: isHovered ? 'none' : 'scrollLeft 20s linear infinite',
+                whiteSpace: 'nowrap',
+                alignItems: 'center',
+              }}
+            >
+              {[...logos].map((logo, idx) => (
                 <img
                   key={idx}
                   src={logo}
                   alt="Recruitment Partner Logo"
-                  style={{ height: "60px", marginRight: "2rem" }}
+                  className="partner-logo"
                 />
               ))}
             </div>
           </div>
         </motion.div>
 
-        <style>
-          {`
-          @keyframes scrollLeftRight {
-            0% {
-              transform: translateX(0%);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-        `}
-        </style>
+        {/* Scoped style tag */}
+        <style>{`
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .partner-logo {
+      height: 50px;
+      margin-right: 2rem;
+      max-width: 100px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .partner-logo:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .partner-logo {
+        height: 40px;
+        margin-right: 1rem;
+        max-width: 80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .partner-logo {
+        height: 30px;
+        margin-right: 0.8rem;
+        max-width: 60px;
+      }
+    }
+  `}</style>
       </section>
 
-      {/* Placement Cell Activities */}
-      <section style={{ padding: '2rem 1rem', backgroundColor: '#ffffff' }}>
-        <motion.div whileInView={{ opacity: [0, 1], y: [30, 0] }} transition={{ duration: 0.6 }}>
-          <h2><FaListAlt style={{ marginRight: '10px' }} />Placement Cell Activities</h2>
-          <ul style={{ maxWidth: '800px', margin: '1rem auto', textAlign: 'left', lineHeight: '2rem' }}>
-            <li>Formation of Students’ Placement Committees for final placement and industry-linked projects.</li>
-            <li>Preparation of Placement Brochure for final placement.</li>
-            <li>Pre-placement visits (PPV) to companies.</li>
-            <li>Communication and relationship building with potential recruiters.</li>
-            <li>Invitation to recruiters to visit the Institute.</li>
-            <li>Ongoing placement support until all students are placed.</li>
-            <li>Grooming and training candidates to improve placement success.</li>
-            <li>Conducting placement drives and campus interviews.</li>
-          </ul>
-        </motion.div>
-      </section>
-
-      {/* Committee Members */}
-      <section style={{ padding: '2rem 1rem', backgroundColor: '#f8faff' }}>
-        <motion.div whileInView={{ opacity: [0, 1], y: [30, 0] }} transition={{ duration: 0.6 }}>
-          <h2><FaUsers style={{ marginRight: '10px' }} />Placement Committee Members</h2>
-          <ul style={{ maxWidth: '800px', margin: '1rem auto', textAlign: 'left', lineHeight: '2rem' }}>
-            <li>1. Sri Ranthidev CS (Placement Officer)</li>
-            <li>2. Sri. Anilkumar PR (HOS CT)</li>
-            <li>3. Smt. Anila Kumari CA (HOS EL)</li>
-            <li>4. Smt. Krishnaveni KR (HOS BME)</li>
-            <li>5. Smt. Divya VV (Lecturer in EL)</li>
-            <li>6. Smt. Joshmy Jose (Lecturer in BME)</li>
-            <li>7. Smt. Hima A U (Lecturer in CT)</li>
-            <li>8. Smt. Sony KT (Lecturer in CT)</li>
-            <li>9. Smt. Badarunisa T S (Lecturer in CT)</li>
-            <li>10. Smt. Devasena KR (Lecturer in EE)</li>
-          </ul>
-        </motion.div>
-      </section>
-
-      {/* Placement Gallery */}
-      <PlacementGallery />
     </Col>
   );
 }
