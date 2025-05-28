@@ -1,0 +1,71 @@
+
+
+.nav-hover {
+  color: white !important;
+  transition: color 0.3s ease;
+
+}
+
+.nav-hover:hover {
+  color: #02488e !important;
+  text-decoration: none;
+}
+
+
+.nav-hover.active {
+  color: #1e4872 !important; 
+}
+.dropdown-toggle {
+  color: white !important;
+}
+.dropdown-toggle:hover{
+  color: #02488e !important;
+}
+.dropdown-toggle:active{
+  color: #1e4872 !important;
+}
+
+/* Default transparent navbar */
+.navbar-custom {
+  background-color: rgba(0, 123, 255, 0.5) !important; /* Bootstrap 'info' with 50% opacity */
+  transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
+  backdrop-filter: blur(0px);
+  z-index: 1030;
+}
+
+/* On scroll */
+.navbar-custom.scrolled {
+  background-color: rgba(183, 218, 255, 0.5) !important;
+  backdrop-filter: blur(5px);
+  color: gray;
+}
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand {
+  transition: color 0.s ease;
+  color: white;
+}
+.navbar-custom.scrolled .nav-link,
+.navbar-custom.scrolled .navbar-brand 
+{
+  color: rgb(0, 128, 255);
+}
+
+/* Make nav links black when scrolled */
+.navbar-custom.scrolled .nav-link,
+.navbar-custom.scrolled .dropdown-toggle {
+  color: rgb(74, 74, 74) !important;
+}
+
+/* Optional: Make active link darker */
+.navbar-custom.scrolled .nav-link.active,
+.navbar-custom.scrolled .dropdown-toggle:active {
+  color: #1e4872 !important;
+}
+
+/* Optional: On hover, make it dark blue */
+.navbar-custom.scrolled .nav-link:hover,
+.navbar-custom.scrolled .dropdown-toggle:hover {
+  color: rgb(0, 128, 255) !important;
+}
+
+
