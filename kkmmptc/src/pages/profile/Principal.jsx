@@ -5,22 +5,27 @@ import principalImage from '../../assets/images/principal.jpeg';
 export default function Principal() {
   return (
     <Container className="my-5 d-flex justify-content-center">
+
       <Card
         sx={{
           maxWidth: 600,
           boxShadow: 5,
           borderRadius: 4,
           p: 2,
-          textAlign: 'center'
+          textAlign: 'center',
+          alignItems:'center',
+          justifyContent:'center'
         }}
       >
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
         <CardMedia
           component="img"
           height="auto"
           image={principalImage}
           alt="Principal"
-          sx={{ objectFit: 'cover', borderRadius: 2 }}
+          sx={{ objectFit: 'cover', borderRadius: 2,width:'300px',height:'450' }}
         />
+        </Box>
         <CardContent>
           <Typography variant="h5" component="div" gutterBottom>
             Smt.Asha R

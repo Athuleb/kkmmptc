@@ -101,25 +101,25 @@ export default function CourseDetails() {
                 <Card.Title className="fw-bold text-center mb-3">First Year Diploma Fee Structure</Card.Title>
                 <p><strong>At the Time of Admission:</strong></p>
                 <ul>
-                  <li>Admission Fees: ₹600</li>
-                  <li>Tuition Fees: ₹12,100</li>
-                  <li>Caution Deposit: ₹2,000</li>
-                  <li>PTA: ₹2,800</li>
-                  <li>Technical Club Reg. Fees: ₹500</li>
-                  <li>Placement Cell Reg. Fees: ₹750</li>
-                  <li><strong>Total: ₹18,750</strong></li>
+                  <li>Admission Fees: Rs600</li>
+                  <li>Tuition Fees: Rs12,100</li>
+                  <li>Caution Deposit: Rs2,000</li>
+                  <li>PTA: Rs2,800</li>
+                  <li>Technical Club Reg. Fees: Rs500</li>
+                  <li>Placement Cell Reg. Fees: Rs750</li>
+                  <li><strong>Total: Rs18,750</strong></li>
                 </ul>
 
                 <p><strong>2nd to 6th Semester:</strong></p>
                 <ul>
-                  <li>₹12,100 (each remaining semester)</li>
+                  <li>Rs12,100 (each remaining semester)</li>
 
                 </ul>
                 <hr />
 
-                <p><strong>First Year Fees:</strong> ₹30,850</p>
-                <p><strong>Second Year:</strong> ₹24,200</p>
-                <p><strong>Final Year:</strong> ₹24,200</p>
+                <p><strong>First Year Fees:</strong> Rs30,850</p>
+                <p><strong>Second Year:</strong> Rs24,200</p>
+                <p><strong>Final Year:</strong> Rs24,200</p>
               </Card.Body>
             </Card>
           </Col>
@@ -131,24 +131,24 @@ export default function CourseDetails() {
                 <Card.Title className="fw-bold text-center mb-3">Lateral Entry Fee Structure</Card.Title>
                 <p><strong>At the Time of Admission:</strong></p>
                 <ul>
-                  <li>Admission Fees: ₹600</li>
-                  <li>Tuition Fees: ₹12,100</li>
-                  <li>Caution Deposit: ₹2,000</li>
-                  <li>Additional Tuition Fees: ₹10,000</li>
-                  <li>PTA: ₹2,800</li>
-                  <li>Technical Club Reg. Fees: ₹500</li>
-                  <li>Placement Cell Reg. Fees: ₹750</li>
-                  <li><strong>Total: ₹28,750</strong></li>
+                  <li>Admission Fees: Rs 600</li>
+                  <li>Tuition Fees: Rs12,100</li>
+                  <li>Caution Deposit: Rs2,000</li>
+                  <li>Additional Tuition Fees: Rs10,000</li>
+                  <li>PTA: Rs2,800</li>
+                  <li>Technical Club Reg. Fees: Rs500</li>
+                  <li>Placement Cell Reg. Fees: Rs750</li>
+                  <li><strong>Total: Rs28,750</strong></li>
                 </ul>
 
                 <p><strong>4th to 6th Semester:</strong></p>
                 <ul>
-                  <li>₹12,100 (each remaining semester)</li>
+                  <li>Rs12,100 (each remaining semester)</li>
                 </ul>
 
                 <hr />
-                <p><strong>Second Year:</strong> ₹40850</p>
-                <p><strong>Final Year:</strong> ₹24200</p>
+                <p><strong>Second Year:</strong> Rs40850</p>
+                <p><strong>Final Year:</strong> Rs24200</p>
               </Card.Body>
             </Card>
           </Col>

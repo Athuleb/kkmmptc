@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
 const Home = React.lazy(() => import('../pages/Home'));
 const Contact = React.lazy(() => import('../pages/Contact'));
@@ -46,7 +46,7 @@ const routerList = {
   academy: '/academy',
 };
 
-const route = createBrowserRouter([
+const route = createHashRouter([
   {
     path: '/',
     element: <MainLayout />,
